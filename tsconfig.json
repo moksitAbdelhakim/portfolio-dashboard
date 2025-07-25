@@ -5,6 +5,12 @@
   "references": [
     {
       "path": "./apps/react-portfolio"
+    },
+    {
+      "path": "./packages/ui"
+    },
+    {
+      "path": "./packages/utils"
     }
   ]
 }
