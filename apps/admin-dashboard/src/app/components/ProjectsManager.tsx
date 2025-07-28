@@ -3,11 +3,23 @@ import { Plus, Edit, Trash2, ExternalLink, Calendar } from 'lucide-react';
 import { Button } from '@moksit-org/ui';
 import { Card, CardContent, CardHeader, CardTitle } from '@moksit-org/ui';
 import { Badge } from '@moksit-org/ui';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@moksit-org/ui';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@moksit-org/ui';
 import { Input } from '@moksit-org/ui';
 import { Label } from '@moksit-org/ui';
 import { Textarea } from '@moksit-org/ui';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@moksit-org/ui';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@moksit-org/ui';
 
 interface Project {
   id: string;
@@ -24,7 +36,8 @@ const mockProjects: Project[] = [
   {
     id: '1',
     title: 'E-Commerce Dashboard',
-    description: 'A comprehensive dashboard for managing online stores with analytics and inventory management.',
+    description:
+      'A comprehensive dashboard for managing online stores with analytics and inventory management.',
     status: 'published',
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js'],
     liveUrl: 'https://example.com/ecommerce-dashboard',
@@ -34,7 +47,8 @@ const mockProjects: Project[] = [
   {
     id: '2',
     title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates and team collaboration features.',
+    description:
+      'A collaborative task management application with real-time updates and team collaboration features.',
     status: 'published',
     technologies: ['Vue.js', 'Node.js', 'MongoDB', 'Socket.io'],
     liveUrl: 'https://example.com/task-manager',
@@ -44,7 +58,8 @@ const mockProjects: Project[] = [
   {
     id: '3',
     title: 'AI Content Generator',
-    description: 'An AI-powered content generation tool for creating blog posts, social media content, and marketing copy.',
+    description:
+      'An AI-powered content generation tool for creating blog posts, social media content, and marketing copy.',
     status: 'draft',
     technologies: ['Python', 'FastAPI', 'React', 'OpenAI API'],
     githubUrl: 'https://github.com/user/ai-content-generator',
@@ -68,7 +83,7 @@ export function ProjectsManager() {
   };
 
   const handleDeleteProject = (projectId: string) => {
-    setProjects(projects.filter(p => p.id !== projectId));
+    setProjects(projects.filter((p) => p.id !== projectId));
   };
 
   const getStatusColor = (status: Project['status']) => {
@@ -101,7 +116,10 @@ export function ProjectsManager() {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
-          <Card key={project.id} className="group hover:shadow-md transition-shadow">
+          <Card
+            key={project.id}
+            className="group hover:shadow-md transition-shadow"
+          >
             <CardHeader className="space-y-1">
               <div className="flex justify-between items-start">
                 <CardTitle className="text-lg">{project.title}</CardTitle>
@@ -118,7 +136,7 @@ export function ProjectsManager() {
               <p className="text-sm text-muted-foreground line-clamp-3">
                 {project.description}
               </p>
-              
+
               <div className="flex flex-wrap gap-1">
                 {project.technologies.map((tech) => (
                   <Badge key={tech} variant="secondary" className="text-xs">
@@ -131,20 +149,28 @@ export function ProjectsManager() {
                 <div className="flex space-x-2">
                   {project.liveUrl && (
                     <Button size="sm" variant="outline" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="h-3 w-3" />
                       </a>
                     </Button>
                   )}
                   {project.githubUrl && (
                     <Button size="sm" variant="outline" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         GitHub
                       </a>
                     </Button>
                   )}
                 </div>
-                
+
                 <div className="flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Button
                     size="sm"

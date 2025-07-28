@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+@import "tailwindcss";
+
+@source '../../../packages/ui/';
+
+:root {
+    /* Typography */
+    --font-family: 'Space Grotesk', sans-serif, 'Inter', Arial;
+    --font-size: 16px;
+    --line-height: 1.5rem;
+
+    /* Core Palette */
+    --background: oklch(0.2191 0.0174 230.17);
+    --foreground: oklch(1 0 0);
+
+    /* Primary/Secondary */
+    --primary: oklch(0.6972 0.1368 242.68);
+    --primary-transparent: oklch(0.6972 0.1368 242.68 / 0.5);
+    --primary-foreground: oklch(0.2714 0.0284 236.67);
+    --secondary: oklch(0.3306 0.037 241.65);
+    --secondary-foreground: var(--foreground);
+
+    /* Muted/Border */
+    --muted: oklch(0.7482 0.0447 238.73);
+    --border: oklch(0.4231 0.0496 237.86);
+
+    /* Input */
+    --input-background: oklch(0.2722 0.0275 238.29);
+    --input-foreground: oklch(0.9296 0.0052 247.88);
+
+    /* Navbar */
+    --navbar-border: var(--input-foreground);
+
+    /* sizes */
+    --navbar-height: 4rem;
+    --hero-height: calc(100vh - var(--navbar-height) - 2.5625rem);
+}
+
+@theme default {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-family: var(--font-family);
+    --font-size: var(--font-size);
+    --line-height: var(--line-height);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-border: var(--border);
+    --color-input-background: var(--input-background);
+    --color-input-foreground: var(--input-foreground);
+}
+
+@layer base {
+    * {
+        @apply box-border;
+    }
+
+    body {
+        @apply bg-background text-foreground font-family text-base leading-normal;
+    }
+}
