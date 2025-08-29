@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 @import "tailwindcss";
 
@@ -6,31 +6,26 @@
 
 :root {
     /* Typography */
-    --font-family: 'Space Grotesk', sans-serif, 'Inter', Arial;
-    --font-size: 16px;
-    --line-height: 1.5rem;
+    --font-family: "IBM Plex Sans", "Fira Code", sans-serif;
+    --font-size: 1rem;
 
-    /* Core Palette */
-    --background: oklch(0.2191 0.0174 230.17);
-    --foreground: oklch(1 0 0);
+    /* Core Palette : #0A192F, #A8B2D1, #CCD6F6*/
+    --background: oklch(0.2136 0.0483 257.95);
+    --foreground: oklch(0.766 0.0458 271.2);
+    --foreground-bright: oklch(0.8786 0.0455 271.71);
 
-    /* Primary/Secondary */
-    --primary: oklch(0.6972 0.1368 242.68);
-    --primary-transparent: oklch(0.6972 0.1368 242.68 / 0.5);
-    --primary-foreground: oklch(0.2714 0.0284 236.67);
-    --secondary: oklch(0.3306 0.037 241.65);
-    --secondary-foreground: var(--foreground);
+    /* Primary: #64FFDA / Muted: #8892B0*/
+    --primary: oklch(0.9077 0.1414 174.34);
+    --secondary: var(--foreground-bright);
+    --muted: oklch(0.6624 0.0461 270.63);
 
-    /* Muted/Border */
-    --muted: oklch(0.7482 0.0447 238.73);
-    --border: oklch(0.4231 0.0496 237.86);
+    /* Card: #112240 / Divider: #233554 */
+    --card-background: oklch(0.2552 0.0612 260.93);
+    --card-foreground: var(--foreground);
+    --divider: oklch(0.3294 0.0601 260.77);
 
-    /* Input */
-    --input-background: oklch(0.2722 0.0275 238.29);
-    --input-foreground: oklch(0.9296 0.0052 247.88);
-
-    /* Navbar */
-    --navbar-border: var(--input-foreground);
+    /* Navbar : #0A192F 85% */
+    --navbar-background: oklch(0.2136 0.0483 257.95 / 85%);
 
     /* sizes */
     --navbar-height: 4rem;
@@ -40,17 +35,13 @@
 @theme default {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
-    --font-family: var(--font-family);
-    --font-size: var(--font-size);
-    --line-height: var(--line-height);
     --color-primary: var(--primary);
-    --color-primary-foreground: var(--primary-foreground);
     --color-secondary: var(--secondary);
-    --color-secondary-foreground: var(--secondary-foreground);
     --color-muted: var(--muted);
-    --color-border: var(--border);
-    --color-input-background: var(--input-background);
-    --color-input-foreground: var(--input-foreground);
+    --color-card-background: var(--card-background);
+    --color-card-foreground: var(--card-foreground);
+    --color-divider: var(--divider);
+    --color-navbar-background: var(--navbar-background);
 }
 
 @layer base {
@@ -59,6 +50,44 @@
     }
 
     body {
-        @apply bg-background text-foreground font-family text-base leading-normal;
+        @apply bg-background text-foreground p-0 m-0;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        line-height: 35.2px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 30.8px;
+    }
+
+    p {
+        font-size: 1.0625rem;
+        font-weight: 400;
+        line-height: 1.625rem;
+    }
+
+    li {
+        list-style: none;
+        font-size: 0.875rem;
+        font-family: 'Fira Code', monospace;
+        color: var(--foreground-bright);
+        padding: 0.625rem 0.9375rem;
+        transition: color 0.3s;
+    }
+
+    li:hover {
+        color: var(--primary);
+        cursor: pointer;
+    }
+
+    html {
+        font-size: var(--font-size);
+        font-family: var(--font-family);
+        line-height: 1.625rem;
     }
 }
