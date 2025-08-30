@@ -1,5 +1,6 @@
 import Scene from '../r3f/Scene';
 import Hero from '../sections/Hero';
+import { HeroSection } from '../sections/HeroSection';
 import { RightSidebar, LeftSidebar } from './Sidebar';
 
 /**
@@ -9,11 +10,12 @@ import { RightSidebar, LeftSidebar } from './Sidebar';
  */
 const Layout = () => {
   return (
-    <div className="flex h-dvh relative">
+    <div id="content" className="w-dvw flex relative h-full">
       {/* Main content centered */}
-      <main className="flex-1 flex flex-col items-center justify-center min-h-full">
+      <main className="w-full max-w-[100rem] min-h-dvh px-[150px] py-0 mx-auto ">
         {/* <Scene /> */}
-        <Hero />
+        {/* <Hero /> */}
+        <HeroSection />
       </main>
       <RightSidebar />
       <LeftSidebar />

@@ -1,35 +1,32 @@
+import { Reveal } from '../components/Reveal';
 import { Button } from '@moksit-org/ui';
 
-const Hero = () => {
+export const HeroSection = () => {
   return (
     <section
       id="hero"
       className="flex flex-col items-start justify-center w-[62.5rem] mx-auto pt-[var(--nav-height)] p-0 min-h-dvh"
     >
-      <div className="transition-all duration-300 delay-100">
+      <Reveal delay={0.1}>
         <h1 className="ml-1 mb-[30px]">Hi, my name is</h1>
-      </div>
-      <div className="transition-all duration-300 delay-200">
+      </Reveal>
+
+      <Reveal delay={0.2}>
         <h2 aria-label="Abdelhakim Moksit">Abdelhakim Moksit.</h2>
-      </div>
-      <div className="transition-all duration-300 delay-300">
+      </Reveal>
+
+      <Reveal delay={0.3}>
         <h3
           className="mt-[5px]"
           aria-label="Cloud engineer with frontend expertise"
         >
-          {/* "I architect scalable cloud solutions with a frontend finesse."
-            "Bridging cloud infrastructure and user experience—seamlessly."
-            "Building intuitive UIs on resilient cloud platforms."
-            "Designing seamless experiences with robust cloud tech."
-            "Smart interfaces. Strong cloud foundations."
-            "Crafting seamless UIs, powered by the cloud."
-          */}
           Crafting UIs, powered by the cloud.
         </h3>
-      </div>
-      <div className="transition-all duration-300 delay-400">
-        <p className="m-0 mt-5 w-[540px] ">
-          I’m a IoT engineer specializing in building (and occasionally
+      </Reveal>
+
+      <Reveal delay={0.4}>
+        <p className="m-0 mt-5 w-[540px]">
+          I’m an IoT engineer specializing in building (and occasionally
           designing) exceptional digital experiences. Currently, I’m focused on
           acquiring full stack experience at{' '}
           <a
@@ -42,8 +39,9 @@ const Hero = () => {
             Qwasar Silicon Valley.
           </a>
         </p>
-      </div>
-      <div className="transition-all duration-300 delay-500">
+      </Reveal>
+
+      <Reveal delay={0.5}>
         <Button
           variant="transition"
           size="default"
@@ -51,9 +49,7 @@ const Hero = () => {
         >
           Hire me!
         </Button>
-      </div>
+      </Reveal>
     </section>
   );
 };
-
-export default Hero;
