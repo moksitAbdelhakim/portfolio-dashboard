@@ -1,7 +1,6 @@
 import { Button } from '@moksit-org/ui';
-import { Hand } from 'lucide-react';
 import { useEffect, useState } from 'react';
-
+import { Reveal } from '../components/Reveal';
 /**
  * Header component that hides on scroll down and shows on scroll up.
  *
@@ -36,7 +35,13 @@ const Header: React.FC = () => {
   );
 };
 
-// Nav
+const navLinks = [
+  { href: '/#about', label: 'About' },
+  { href: '/#jobs', label: 'Experience' },
+  { href: '/#projects', label: 'Work' },
+  { href: '/#contact', label: 'Contact' },
+];
+
 const Nav = () => {
   const HandleDownloadResume = () => {
     const pdfUrl = '/Resume.pdf';
@@ -62,28 +67,24 @@ const Nav = () => {
       </div>
       <div className="flex items-center gap-4">
         <ol className="flex items-center justify-center [&>li>a]:leading-[16.9px] leading-[26px] p-0 m-0 list-none">
-          <li className="transition-all duration-300 delay-[0ms]">
-            <a href="/#about">About</a>
-          </li>
-          <li className="transition-all duration-300 delay-[100ms]">
-            <a href="/#jobs">Experience</a>
-          </li>
-          <li className="transition-all duration-300 delay-[200ms]">
-            <a href="/#projects">Work</a>
-          </li>
-          <li className="transition-all duration-300 delay-[300ms]">
-            <a href="/#contact">Contact</a>
-          </li>
+          {navLinks.map((link, idx) => (
+            <Reveal key={link.label} delay={idx * 0.1}>
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            </Reveal>
+          ))}
         </ol>
-        {/* TODO: The delay affects the button as well */}
-        <Button
-          variant="transition"
-          size="default"
-          className="transition-[var(--transition)] delay-[400ms]"
-          onClick={HandleDownloadResume}
-        >
-          Resume
-        </Button>
+        <Reveal delay={navLinks.length * 0.1}>
+          <Button
+            variant="transition"
+            size="default"
+            className="transition-[var(--transition)]"
+            onClick={HandleDownloadResume}
+          >
+            Resume
+          </Button>
+        </Reveal>
       </div>
     </nav>
   );
